@@ -8,6 +8,10 @@ import {
   Image
 } from 'react-bootstrap';
 
+import {
+  Link
+} from "react-router-dom";
+
 function Login(){
     return (
         <div className="login">
@@ -49,9 +53,11 @@ function Login(){
 
                     <Row className="justify-content-md-center">
                         <Col  lg={6}  sm={12}>
+                        <Link to="/dashboard">
                               <Button className="buttonProject" variant="primary" type="submit">
-                                Cadastrar
+                                 CADASTRAR
                               </Button>
+                          </Link>
                         </Col>
                     </Row>
 
