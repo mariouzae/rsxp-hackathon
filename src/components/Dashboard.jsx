@@ -1,67 +1,26 @@
 import React from 'react';
+import { MdSchedule } from 'react-icons/md';
 
-import { 
-    Button,
-    Form,
-    Container,
-    Row,
-    Col,
-    Image
-  } from 'react-bootstrap';
+import { OfficesList } from './styles';
 
-  import {
-    Link
-  } from "react-router-dom";
-  
-function Dashboard(){
-    return(
-        <Container>
-                
-        <Row className="justify-content-md-center">
-            <Col lg={6}  sm={12}>
-              <Image className="logo" src="logo.png" roundedCircle />
-            </Col>
-        </Row>
+import ibmLogo from '../../assets/ibm-logo.png';
 
-        <Row className="justify-content-md-center">
-            <Col lg={6}  sm={12}>
-              <Form.Group>
-                <Form.Label  className="loginLabel">Instituição</Form.Label>
-                <Form.Control type="text" placeholder="Digite o nome da instituição" />
-              </Form.Group>
-            </Col>
-        </Row>
+export default function Home() {
+  return (
+    <OfficesList>
+      <li>
+        <img src={ibmLogo} 
+        alt="IBM" />
+        <strong>IBM</strong>
+        <span>A IBM é uma empresa de tecnologia</span>
 
-        <Row className="justify-content-md-center">
-            <Col  lg={6}  sm={12}>
-              <Form.Group>
-                <Form.Label  className="loginLabel">Email</Form.Label>
-                <Form.Control type="email" placeholder="Digite seu e-mail" />
-              </Form.Group>
-            </Col>
-        </Row>
-
-        <Row className="justify-content-md-center">
-            <Col  lg={6}  sm={12}>
-              <Form.Group>
-                <Form.Label  className="loginLabel">Senha</Form.Label>
-                <Form.Control type="password" placeholder="Digite sua senha" />
-              </Form.Group>
-            </Col>
-        </Row>
-
-        <Row className="justify-content-md-center">
-            <Col  lg={6}  sm={12}>
-            <Link to="/dashboard">
-                  <Button className="buttonProject" variant="primary" type="submit">
-                     CADASTRAR
-                  </Button>
-              </Link>
-            </Col>
-        </Row>
-
-    </Container>
-    )
+        <button type="button">
+          <div>
+            <MdSchedule size={16} color="#FFF" />
+          </div>
+          <span>Ver horários disponíveis</span>
+        </button>
+      </li>
+    </OfficesList>
+  )
 }
-
-export default Dashboard;
