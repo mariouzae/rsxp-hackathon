@@ -1,3 +1,32 @@
+body{
+  background: white;
+}
+
+.login{
+  margin:0 auto;
+  display: block
+}
+
+.loginLabel{
+  text-align: left !important;
+  font-size:12px;
+  font-weight: bold;
+  font-style: italic;
+  color: #c1c2c2;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.logo{
+  width: 60%;
+}
+.buttonProject{
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
 .App {
   text-align: center;
 }
