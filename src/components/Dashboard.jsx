@@ -3,7 +3,7 @@ import { MdSchedule } from 'react-icons/md';
 
 import { OfficesList } from './styles';
 
-import ibmLogo from '../../assets/ibm-logo.png';
+import ibmLogo from '../assets/ibm.jpg';
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <li>
         <img src={ibmLogo} 
         alt="IBM" />
-        <strong>IBM</strong>
+        
         <span>A IBM é uma empresa de tecnologia</span>
 
         <button type="button">
