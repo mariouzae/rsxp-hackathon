@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import firebase from 'firebase';
+import firebaseConfig from './config/firebase';
 
-function App() {
+import { addSchool, findAll, findByEmail } from './database/schools';
+import { getAll, findByName } from './database/companies';
+import { addBooking, findBookingBySchool, findBookingByCompany } from './database/bookings';
+
+// Firebase initialization
+firebase.initializeApp(firebaseConfig);
+
+function App() {  
+
+  getAll()
+  .then((company) => {
+    console.log("Companies: ", company);
+  })
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>RSXP</h1>
     </div>
   );
 }
