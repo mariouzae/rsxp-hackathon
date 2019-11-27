@@ -1,18 +1,17 @@
 import { firebaseFireStore } from '../dependencies';
 
-export const addBooking = async (companyId, schoolId) => {
+export const addBooking = async (companyId, schoolId, date) => {
     try {
         const data = {
             companyId,
             schoolId,
             createdAt: new Date(),
-            date: new Date()
+            date
         }
 
         firebaseFireStore().collection('bookings')
             .add(data)
             .then((refDoc) => {
-                console.log("Refdoc: ", refDoc.id);
                 return refDoc.id;
             })
             .catch(() => {})

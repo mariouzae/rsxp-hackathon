@@ -19,6 +19,9 @@ export {
     CardMedia,
     CardActions,
     CardContent,
+    InputLabel,
+    Select,
+    //InputLabel,
 } from '@material-ui/core'
 export {
     makeStyles

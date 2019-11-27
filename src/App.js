@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import firebaseConfig from './config/firebase';
 import * as lib from './dependencies';
-import { Card } from './components';
+import { Card, Form } from './components';
+import { Add }  from '@material-ui/icons';
 
 // import { addSchool, findAll, findByEmail } from './database/schools';
 import { getAll, findByName } from './database/companies';
@@ -50,6 +51,11 @@ const useStyles = lib.makeStyles(theme => ({
 function App() {
   const classes = useStyles();
   const [companies, setCompanies] = useState([]);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = () => {
+    setOpen(!open);
+  };
 
   useEffect(() => {
     getAll()
@@ -66,7 +72,7 @@ function App() {
       <lib.AppBar position="fixed" className={classes.appBar}>
         <lib.Toolbar className={classes.toolbarItems}>
           <lib.Typography variant="h6" noWrap>
-            devXP
+            deepXP
           </lib.Typography>
           <lib.Typography>
             <lib.Avatar>MU</lib.Avatar>
@@ -82,9 +88,8 @@ function App() {
       >
         <div className={classes.toolbar} />
         <lib.List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Agendamentos', 'Histórico', 'Mensagens'].map((text, index) => (
             <lib.ListItem button key={text}>
-              {/* <lib.ListItemIcon>{index % 2 === 0 ? <lib.InboxIcon /> : <lib.MailIcon />}</ListItemIcon> */}
               <lib.ListItemText primary={text} />
             </lib.ListItem>
           ))}
@@ -96,8 +101,13 @@ function App() {
           <lib.Typography variant="h5">
             Experiencias nas empresas
           </lib.Typography>
-          <lib.Button variant="contained" color="primary">
-            Adicionar
+          <lib.Button 
+            variant="contained" 
+            color="primary"
+            onClick={handleClose}
+          >
+            <Add /> 
+            Agendar nova visita
         </lib.Button>
         </div>
         <div className={classes.card}>
@@ -105,6 +115,9 @@ function App() {
             <Card obj={item} />
           ))}
         </div>
+        {open &&
+          <Form open={open} handleClose={handleClose} />
+        }
       </main>
     </div>
   );
